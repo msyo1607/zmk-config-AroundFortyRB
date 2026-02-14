@@ -75,6 +75,17 @@
 
             tap-ms = <20>;
         };
+
+        hold_tap_hwu: hold_tap_hwu {
+            compatible = "zmk,behavior-hold-tap";
+            label = "HOLD_TAP_HWU";
+            bindings = <&kp>, <&kp>;
+
+            #binding-cells = <2>;
+            tapping-term-ms = <200>;
+            flavor = "balanced";
+            hold-while-undecided;
+        };
     };
 
     keymap {
@@ -83,10 +94,10 @@
         Win-Base {
             display-name = "Win-Base";
             bindings = <
-&kp Q             &kp W     &kp E     &kp R                 &kp T                          &kp Y        &kp U        &kp I          &kp O    &kp P
-&kp A             &kp S     &kp D     &kp F                 &kp G                          &kp H        &kp J        &kp K          &kp L    &lt 7 MINUS
-&mt LEFT_SHIFT Z  &kp X     &kp C     &kp V                 &kp B        &ime_tog          &kp N        &kp M        &kp COMMA      &kp DOT  &mt RIGHT_SHIFT SLASH
-&kp LCTRL         &kp LGUI  &kp LALT  &mt LSHFT LANGUAGE_1  &lt 2 SPACE  &lt 6 LANGUAGE_2  &lt 4 ENTER  &kp AT_SIGN  &kp BACKSPACE  &mo 8    &kp DEL
+&kp Q                       &kp W     &kp E     &kp R             &kp T                        &kp Y        &kp U        &kp I          &kp O     &kp P
+&hold_tap_hwu LCTRL A       &kp S     &kp D     &kp F             &kp G                        &kp H        &kp J        &kp K          &kp L     &lt 7 MINUS
+&hold_tap_hwu LEFT_SHIFT Z  &kp X     &kp C     &kp V             &kp B      &ime_tog          &kp N        &kp M        &mkp MB1       &mkp MB2  &mt RIGHT_SHIFT SLASH
+&kp LCTRL                   &kp LGUI  &kp LALT  &lt 2 LANGUAGE_2  &kp SPACE  &lt 6 LANGUAGE_1  &lt 4 ENTER  &kp AT_SIGN  &kp BACKSPACE  &mo 8     &kp DEL
             >;
         };
 
@@ -103,10 +114,10 @@
         Win-Fnc {
             display-name = "Win-Fnc";
             bindings = <
-&kp LC(A)       &kp LC(X)     &kp LC(C)    &kp LC(V)  &kp LC(F)          &kp LESS_THAN         &kp GREATER_THAN       &kp CARET        &kp PERCENT    &kp DOLLAR
-&kp TAB         &kp LEFT_ALT  &kp LS(TAB)  &mkp MB1   &mkp MB2           &kp LEFT_PARENTHESIS  &kp RIGHT_PARENTHESIS  &kp AT_SIGN      &kp AMPERSAND  &kp DOUBLE_QUOTES
-&kp LEFT_SHIFT  &trans        &trans       &trans     &mkp MB3   &trans  &kp LEFT_BRACKET      &kp RIGHT_BRACKET      &kp EXCLAMATION  &kp QUESTION   &kp SINGLE_QUOTE
-&kp LCTRL       &trans        &trans       &trans     &trans     &trans  &trans                &trans                 &kp BACKSPACE    &kp ENTER      &kp HASH
+&kp LC(A)       &kp LC(X)     &kp LC(C)    &kp LC(V)  &kp LC(F)          &kp AT                &kp AMPS               &kp CARET      &kp PERCENT       &kp DOLLAR
+&kp TAB         &kp LEFT_ALT  &kp LS(TAB)  &mkp MB1   &mkp MB2           &kp LEFT_PARENTHESIS  &kp RIGHT_PARENTHESIS  &kp COMMA      &kp PERIOD        &kp DOUBLE_QUOTES
+&kp LEFT_SHIFT  &trans        &trans       &trans     &mkp MB3   &trans  &kp LEFT_BRACKET      &kp RIGHT_BRACKET      &kp LESS_THAN  &kp GREATER_THAN  &kp SINGLE_QUOTE
+&kp LCTRL       &trans        &trans       &trans     &trans     &trans  &trans                &kp EXCL               &kp BACKSPACE  &kp ENTER         &kp HASH
             >;
         };
 
