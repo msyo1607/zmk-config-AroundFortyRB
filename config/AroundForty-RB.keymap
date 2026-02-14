@@ -75,7 +75,73 @@
 
             tap-ms = <20>;
         };
+ 
+        hold_or_tap: hold_or_tap {
+            compatible = "zmk,behavior-hold-tap";
+            label = "HOLD_OR_TAP";
+            bindings = <&kp>, <&kp>;
+
+            #binding-cells = <2>;
+            tapping-term-ms = <200>;
+            flavor = "balanced";
+            hold-while-undecided;
+        };
+
+        hold_or_tap_quick_tap_ms: hold_or_tap_quick_tap_ms {
+            compatible = "zmk,behavior-hold-tap";
+            label = "HOLD_OR_TAP_QUICK_TAP_MS";
+            bindings = <&mo>, <&kp>;
+
+            #binding-cells = <2>;
+            tapping-term-ms = <200>;
+            flavor = "balanced";
+            quick-tap-ms = <175>;
+            require-prior-idle-ms = <150>;
+        };
+
+        hold_or_tap_quicktapms_kp: hold_or_tap_quicktapms_kp {
+            compatible = "zmk,behavior-hold-tap";
+            label = "HOLD_OR_TAP_QUICKTAPMS_KP";
+            bindings = <&kp>, <&kp>;
+
+            #binding-cells = <2>;
+            tapping-term-ms = <200>;
+            flavor = "balanced";
+            quick-tap-ms = <175>;
+            require-prior-idle-ms = <150>;
+        };
+
+        tog_off: toggle_layer_off {
+            compatible = "zmk,behavior-toggle-layer";
+            #binding-cells = <1>;
+            display-name = "Toggle Layer Off";
+            toggle-mode = "off";
+        };
+
+        mt_exit_AML_on_tap: mt_exit_AML_on_tap {
+            compatible = "zmk,behavior-hold-tap";
+            label = "MT_exit_AML_ON_TAP";
+            bindings = <&kp>, <&kp_exit_AML>;
+
+            #binding-cells = <2>;
+            tapping-term-ms = <200>;
+            flavor = "balanced";
+            require-prior-idle-ms = <150>;
+        };
+
+        mt_exit_AML_on_tap_hwu: mt_exit_AML_on_tap_hwu {
+            compatible = "zmk,behavior-hold-tap";
+            label = "MT_EXIT_AML_ON_TAP_HWU";
+            bindings = <&kp>, <&kp_exit_AML>;
+
+            #binding-cells = <2>;
+            tapping-term-ms = <200>;
+            flavor = "balanced";
+            require-prior-idle-ms = <150>;
+            hold-while-undecided;
+        };
     };
+
 
     keymap {
         compatible = "zmk,keymap";
